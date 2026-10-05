@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Board | JavaScript</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="board">
+
+    <!-- ===== Left column: add + progress ===== -->
+    <aside class="side">
+      <header class="side-head">
+        <p class="eyebrow">My day</p>
+        <h1>Task Board</h1>
+        <p id="today" class="date"></p>
+      </header>
+
+      <form id="taskForm" class="task-form">
+        <label for="taskInput">New task</label>
+        <input type="text" id="taskInput" placeholder="What needs to be done?" maxlength="120" autocomplete="off">
+
+        <label for="priorityInput">Priority</label>
+        <select id="priorityInput">
+          <option value="low">Low</option>
+          <option value="medium" selected>Medium</option>
+          <option value="high">High</option>
+        </select>
+
+        <button type="submit" id="addBtn">+ Add task</button>
+        <p id="formError" class="form-error"></p>
+      </form>
+
+      <section class="progress-box">
+        <div class="progress-top">
+          <span>Progress</span>
+          <strong id="progressText">0%</strong>
+        </div>
+        <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+        <p id="counter" class="counter"></p>
+      </section>
+    </aside>
+
+    <!-- ===== Right column: list ===== -->
+    <section class="main">
+      <div class="tools">
+        <input type="search" id="searchInput" placeholder="Search tasks..." autocomplete="off">
+        <button type="button" id="sortToggle" class="chip-btn" aria-pressed="false">Sort: newest</button>
+      </div>
+
+      <div class="filters" role="group" aria-label="Filter tasks">
+        <button class="filter active" data-filter="all">All</button>
+        <button class="filter" data-filter="pending">Pending</button>
+        <button class="filter" data-filter="completed">Completed</button>
+      </div>
+
+      <ul id="taskList" class="task-list"></ul>
+      <p id="emptyState" class="empty">Nothing here yet. Add a task to get started.</p>
+
+      <footer class="main-foot">
+        <button id="clearCompleted" class="link-btn">Clear completed</button>
+        <small>Saved in your browser (localStorage)</small>
+      </footer>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
